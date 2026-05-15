@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "files": {
+    "src/extension.ts": {
+      "fileMemos": [],
+      "lineMemos": [
+        {
+          "id": "mp6nxverr8lqqh",
+          "line": 16,
+          "content": "활성화 시 이벤트 실행",
+          "createdAt": "2026-05-15T08:36:17.091Z"
+        }
+      ]
+    }
+  }
+}

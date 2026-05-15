@@ -1,0 +1,83 @@
+{
+  "name": "vscode-chatmark",
+  "displayName": "Chatmark",
+  "description": "VSCode extension for chatmark",
+  "version": "0.0.1",
+  "publisher": "chatmark",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "scripts": {
+    "compile": "tsc",
+    "watch": "tsc --watch",
+    "build": "npm run compile",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "chatmark.addMemo",
+        "title": "Add Memo"
+      },
+      {
+        "command": "chatmark.addLineMemo",
+        "title": "Add Line Memo"
+      },
+      {
+        "command": "chatmark.toggleMemos",
+        "title": "Chatmark: Toggle Memo Display"
+      },
+      {
+        "command": "chatmark.showLineMemos",
+        "title": "Chatmark: Show Line Memos"
+      }
+    ],
+    "configuration": {
+      "title": "Chatmark",
+      "properties": {
+        "chatmark.memoDisplayMode": {
+          "type": "string",
+          "enum": ["off", "always", "toggle"],
+          "default": "toggle",
+          "description": "Editor display mode for saved line memos. off = hidden, always = always shown, toggle = runtime toggleable via status bar."
+        }
+      }
+    },
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "chatmark.addMemo",
+          "when": "explorerResource && !explorerResourceIsFolder",
+          "group": "navigation@1"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "chatmark.addLineMemo",
+          "when": "editorTextFocus",
+          "group": "navigation@1"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "chatmark.addLineMemo",
+        "key": "ctrl+m",
+        "mac": "cmd+m",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.19",
+    "@types/vscode": "^1.95.0",
+    "typescript": "^5.6.0",
+    "vsce": "^2.15.0"
+  }
+}
