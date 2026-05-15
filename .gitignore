@@ -1,1 +1,4 @@
 /vscode-chatmark-0.0.1.vsix
+
+.sisyphus/
+node_modules/
